@@ -32,7 +32,7 @@ namespace EasySave_v1
                 Console.WriteLine("-----------------");
                 Console.WriteLine("| 2 -- Quit     |");
                 Console.WriteLine("-----------------");
-                Console.WriteLine("\nEnter your choose : ");
+                Console.WriteLine("\nType your choice : ");
                 string Choose = Console.ReadLine();
                 switch (Choose)
                 {
@@ -43,12 +43,12 @@ namespace EasySave_v1
                         Console.WriteLine("-----------------");
                         Console.WriteLine("| 2 -- Select   |");
                         Console.WriteLine("-----------------");
-                        Console.WriteLine("\nEnter your choose : ");
+                        Console.WriteLine("\nType your choice : ");
                         Choose = Console.ReadLine();
                         switch (Choose)
                         {
                             case "1":
-                                Console.WriteLine("Enter this amount of back-up");
+                                Console.WriteLine("Type the amount of back-up desired");
                                 backupCount = Console.ReadLine();
                                 backupCountInt = int.Parse(backupCount);
 
@@ -57,19 +57,19 @@ namespace EasySave_v1
                                     while (NumberBackup != backupCountInt)
                                     {
                                         //Donner le nom du répertoire cible
-                                        Console.WriteLine("Enter Directory Name :");
+                                        Console.WriteLine("Type Directory Name :");
                                         Name = Console.ReadLine();
 
                                         //Selectionner le chemin répertoire source
-                                        Console.WriteLine("Enter Source Directory :");
+                                        Console.WriteLine("Type Source Directory :");
                                         SourceDirectory = Console.ReadLine();
 
                                         //Selectionner le chemin répertoire cible
-                                        Console.WriteLine("Enter Target Directory :");
+                                        Console.WriteLine("Type Target Directory :");
                                         TargetDirectory = Console.ReadLine();
 
                                         //Selectionner le type de back-up
-                                        Console.WriteLine("Enter Type Backup");
+                                        Console.WriteLine("Type the type Backup");
                                         Type = Console.ReadLine();
 
                                         //Combiner le chemin avec le nom
@@ -92,7 +92,7 @@ namespace EasySave_v1
                                 break;
 
                             case "2":
-                                Console.WriteLine("Enter backup :");
+                                Console.WriteLine("Type backup :");
                                 string ChooseBackup = Console.ReadLine();
 
                                 FirstBackup.ExecBackup(ChooseBackup);
