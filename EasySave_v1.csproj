@@ -68,16 +68,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Backup.cs" />
-    <Compile Include="FileCompare.cs" />
-    <Compile Include="Logs.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Model\Backup.cs" />
+    <Compile Include="Model\FileCompare.cs" />
+    <Compile Include="Model\Logs.cs" />
+    <Compile Include="View\Menu.cs" />
+    <Compile Include="View\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

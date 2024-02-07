@@ -21,7 +21,7 @@ namespace EasySave_v1
 
             Log.Logger = new LoggerConfiguration()
             .WriteTo.Console()  // Write logs on console
-            .WriteTo.File(@"C:\Users\Lilia\source\repos\Logs\log.json", rollingInterval: RollingInterval.Day) // Écriture des logs dans un fichier JSON avec rotation quotidienne
+            .WriteTo.File(@"C:\Temp\log.json", rollingInterval: RollingInterval.Day) // Écriture des logs dans un fichier JSON avec rotation quotidienne
             .CreateLogger();
         }
     }
