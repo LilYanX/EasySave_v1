@@ -8,7 +8,7 @@ using Serilog;
 
 namespace EasySave_v1
 {
-    class FileManagement:Repository
+    class FileManagement
     {
         public FileManagement() { }
 
