@@ -34,7 +34,7 @@ namespace EasySave_v1
 
 		public void CreateTargetDirectory(string PathTarget)
 		{
-			this.TargetDirectory = PathTarget;
+			PathTarget = _Repository.getTargetDirectory();
 
 			//Create directory if it doesn't already exist
 			if (!Directory.Exists(PathTarget))

@@ -82,23 +82,5 @@ namespace EasySave_v1
             Console.WriteLine("Appuyez sur n'importe quelle touche pour quitter...");
             Console.ReadKey();
         }
-
-        public void CreateTargetDirectory(string PathTarget)
-        {
-            this.TargetDirectory = PathTarget;
-
-            //Create directory if it doesn't already exist
-            if (!Directory.Exists(PathTarget))
-            {
-                Directory.CreateDirectory(PathTarget);
-                Log.Information("Creation of directory ", PathTarget);
-
-            }
-        }
-        public string GetTargetDirectory()
-        {
-            return TargetDirectory;
-        }
-
     }
 }

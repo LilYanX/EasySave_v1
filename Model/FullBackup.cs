@@ -42,7 +42,7 @@ namespace EasySave_v1
 						{
 							if (number == backupInfo.Item1)
 							{
-								CopyRepertory(backupInfo.Item4, backupInfo.Item3);
+								_FileManagement.CopyRepertory(backupInfo.Item4, backupInfo.Item3);
 							}
 						}
 					}
