@@ -21,7 +21,9 @@ namespace EasySave_v1
             int backupCountInt = 0;
             int NumberBackup = 0;
 
-            Backup FirstBackup = new Backup(Name, SourceDirectory, TargetDirectory);
+            Backup FirstBackup = new Backup();
+
+            FullBackup secondBackup = new FullBackup();
 
             Log.Information("Start of application");
 
@@ -95,7 +97,7 @@ namespace EasySave_v1
                                 Console.WriteLine("Type backup :");
                                 string ChooseBackup = Console.ReadLine();
 
-                                FirstBackup.ExecBackup(ChooseBackup);
+                                secondBackup.ExecBackup(ChooseBackup);
                                 break;
                         }
                         break;

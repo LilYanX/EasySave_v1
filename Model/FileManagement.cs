@@ -7,8 +7,29 @@ using System.IO;
 
 namespace EasySave_v1
 {
-    class FileManagement
+    class FileManagement:Repository
     {
+        public FileManagement() { }
+
+        public void CopyRepertory(string PathTarget, string PathSource)
+        {
+            this.TargetDirectory = PathTarget;
+            this.SourceDirectory = PathSource;
+            //Create All Repertories
+            foreach (string AllDirectory in Directory.GetDirectories(PathSource, "*", SearchOption.AllDirectories))
+            {
+                Directory.CreateDirectory(AllDirectory.Replace(PathSource, PathTarget));
+            }
+            Log.Information("Creation of all repertories for copy");
+
+            //Copy Files
+            foreach (string AllFiles in Directory.GetFiles(PathSource, "*.*", SearchOption.AllDirectories))
+            {
+                File.Copy(AllFiles, AllFiles.Replace(PathSource, PathTarget), true);
+            }
+            Log.Information("Copy all repertories on ", PathTarget);
+        }
+
         public void CompareElement()
         {
             Console.WriteLine("Entrez le chemin du dossier source :");
