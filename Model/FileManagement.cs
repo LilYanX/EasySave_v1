@@ -4,11 +4,61 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using Serilog;
 
 namespace EasySave_v1
 {
     class FileManagement
     {
+
+        private string Name;
+        private string SourceDirectory;
+        private string TargetDirectory;
+        private string BackupType;
+        private string ChooseBackup;
+
+        public FileManagement()
+        {
+
+        }
+
+        public void CreateTargetDirectory(string PathTarget)
+        {
+            this.TargetDirectory = PathTarget;
+
+            //Create directory if it doesn't already exist
+            if (!Directory.Exists(PathTarget))
+            {
+                Directory.CreateDirectory(PathTarget);
+                Log.Information("Creation of directory ", PathTarget);
+
+            }
+        }
+
+        public string GetTargetDirectory()
+        {
+            return TargetDirectory;
+        }
+
+        public void CopyRepertory(string PathTarget, string PathSource)
+        {
+            this.TargetDirectory = PathTarget;
+            this.SourceDirectory = PathSource;
+            //Create All Repertories
+            foreach (string AllDirectory in Directory.GetDirectories(PathSource, "*", SearchOption.AllDirectories))
+            {
+                Directory.CreateDirectory(AllDirectory.Replace(PathSource, PathTarget));
+            }
+            Log.Information("Creation of all repertories for copy");
+
+            //Copy Files
+            foreach (string AllFiles in Directory.GetFiles(PathSource, "*.*", SearchOption.AllDirectories))
+            {
+                File.Copy(AllFiles, AllFiles.Replace(PathSource, PathTarget), true);
+            }
+            Log.Information("Copy all repertories on ", PathTarget);
+        }
+
         public void CompareElement()
         {
             Console.WriteLine("Entrez le chemin du dossier source :");

@@ -28,22 +28,6 @@ namespace EasySave_v1
 			this.TargetDirectory = TargetDirectory;
 			this.SourceDirectory = SourceDirectory;
 		}
-		public void CreateTargetDirectory(string PathTarget)
-		{
-			this.TargetDirectory = PathTarget;
-
-			//Create directory if it doesn't already exist
-			if (!Directory.Exists(PathTarget))
-			{
-				Directory.CreateDirectory(PathTarget);
-				Log.Information("Creation of directory ", PathTarget);
-				
-			}
-		}
-		public string GetTargetDirectory()
-		{
-			return TargetDirectory;
-		}
 
 		public void createBackup(int NumberBackup, string Name, string SourceDirectory, string TargetDirectory, string Type)
 		{
@@ -52,25 +36,6 @@ namespace EasySave_v1
 
 			backupInfoList.Add(new Tuple<int, string, string, string, string>(NumberBackup, Name, SourceDirectory, TargetDirectory, Type));
 			Log.Information("Creation of backup ", Name);
-		}
-
-		public void CopyRepertory(string PathTarget, string PathSource)
-		{
-			this.TargetDirectory = PathTarget;
-			this.SourceDirectory = PathSource;
-			//Create All Repertories
-			foreach (string AllDirectory in Directory.GetDirectories(PathSource, "*", SearchOption.AllDirectories))
-			{
-				Directory.CreateDirectory(AllDirectory.Replace(PathSource, PathTarget));
-			}
-			Log.Information("Creation of all repertories for copy");
-
-			//Copy Files
-			foreach (string AllFiles in Directory.GetFiles(PathSource, "*.*", SearchOption.AllDirectories))
-			{
-				File.Copy(AllFiles, AllFiles.Replace(PathSource, PathTarget), true);
-			}
-			Log.Information("Copy all repertories on ", PathTarget);
 		}
 
 		public void ExecBackup(string ChooseBackup)
