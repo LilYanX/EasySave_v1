@@ -6,12 +6,26 @@ using System.Threading.Tasks;
 
 namespace EasySave_v1
 {
-    class Repository
+    public class Repository
     {
         protected string Name;
         protected string SourceDirectory;
         protected string TargetDirectory;
 
         public Repository() { }
+        public string getName() 
+        {
+            return Name;
+        }
+
+        public string getSourceDirectory() 
+        {
+            return SourceDirectory;
+        }
+
+        public string getTargetDirectory()
+        {
+            return TargetDirectory;
+        }
     }
 }
