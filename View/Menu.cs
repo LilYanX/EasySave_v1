@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
+using System.Resources;
 using Serilog;
+
 
 namespace EasySave_v1
 {
@@ -21,7 +24,7 @@ namespace EasySave_v1
             int backupCountInt = 0;
             int NumberBackup = 0;
 
-            Backup FirstBackup = new Backup(Name, SourceDirectory, TargetDirectory);
+            Backup FirstBackup = new Backup();
 
             Log.Information("Start of application");
 
@@ -30,9 +33,11 @@ namespace EasySave_v1
                 Console.WriteLine("-----------------");
                 Console.WriteLine("| 1 -- Backup   |");
                 Console.WriteLine("-----------------");
-                Console.WriteLine("| 2 -- Quit     |");
+                Console.WriteLine("| 2 -- Language |");
                 Console.WriteLine("-----------------");
-                Console.WriteLine("\nType your choice : ");
+                Console.WriteLine("| 3 -- Quit     |");
+                Console.WriteLine("-----------------");
+                Console.WriteLine("\nType your choice:");
                 string Choose = Console.ReadLine();
                 switch (Choose)
                 {
@@ -43,7 +48,7 @@ namespace EasySave_v1
                         Console.WriteLine("-----------------");
                         Console.WriteLine("| 2 -- Select   |");
                         Console.WriteLine("-----------------");
-                        Console.WriteLine("\nType your choice : ");
+                        Console.WriteLine("\nType your choice:");
                         Choose = Console.ReadLine();
                         switch (Choose)
                         {
@@ -57,15 +62,15 @@ namespace EasySave_v1
                                     while (NumberBackup != backupCountInt)
                                     {
                                         //Donner le nom du répertoire cible
-                                        Console.WriteLine("Type Directory Name :");
+                                        Console.WriteLine("Type Directory Name:");
                                         Name = Console.ReadLine();
 
                                         //Selectionner le chemin répertoire source
-                                        Console.WriteLine("Type Source Directory :");
+                                        Console.WriteLine("Type Source Directory:");
                                         SourceDirectory = Console.ReadLine();
 
                                         //Selectionner le chemin répertoire cible
-                                        Console.WriteLine("Type Target Directory :");
+                                        Console.WriteLine("Type Target Directory:");
                                         TargetDirectory = Console.ReadLine();
 
                                         //Selectionner le type de back-up
@@ -95,12 +100,34 @@ namespace EasySave_v1
                                 Console.WriteLine("Type backup :");
                                 string ChooseBackup = Console.ReadLine();
 
-                                FirstBackup.ExecBackup(ChooseBackup);
+                                //FirstBackup.ExecBackup(ChooseBackup);
                                 break;
                         }
                         break;
-                    //Quit
+
                     case "2":
+                        Console.WriteLine("-----------------");
+                        Console.WriteLine("| 1 -- English  |");
+                        Console.WriteLine("-----------------");
+                        Console.WriteLine("| 2 -- French   |");
+                        Console.WriteLine("-----------------");
+                        Console.WriteLine("Choose your language:");
+                        Choose = Console.ReadLine();
+                        switch (Choose)
+                        {
+                            case "1":
+                                CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-EN");
+                                break;
+
+                            case "2":
+                                CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("fr-FR");
+                                break;
+                        }
+                        break;
+
+
+                    //Quit
+                    case "3":
                         Log.Information("Leaving application successfully");
                         Environment.Exit(0);
                         break;
