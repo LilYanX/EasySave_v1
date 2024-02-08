@@ -10,24 +10,13 @@ namespace EasySave_v1
 {
 	public class Backup
 	{
-		private string Name;
-		private string SourceDirectory;
-		private string TargetDirectory;
-		private string BackupType;
-		private string ChooseBackup;
+		protected string BackupType;
+		protected string ChooseBackup;
+		protected int NumberBackup;
+		protected List<Tuple<int, string, string, string, string>> backupInfoList = new List<Tuple<int, string, string, string, string>>();
 
-		private int NumberBackup;
-		private List<Tuple<int, string, string, string, string>> backupInfoList = new List<Tuple<int, string, string, string, string>>();
-		public Backup(string Name)
-		{
-			this.Name = Name;
-		}
-		public Backup(string Name, string SourceDirectory, string TargetDirectory)
-		{
-			this.Name = Name;
-			this.TargetDirectory = TargetDirectory;
-			this.SourceDirectory = SourceDirectory;
-		}
+		public Backup() { }
+		
 		public void CreateTargetDirectory(string PathTarget)
 		{
 			this.TargetDirectory = PathTarget;

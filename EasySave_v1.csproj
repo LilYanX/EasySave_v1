@@ -71,6 +71,7 @@
     <Compile Include="Model\Backup.cs" />
     <Compile Include="Model\FileCompare.cs" />
     <Compile Include="Model\Logs.cs" />
+    <Compile Include="Model\Repository.cs" />
     <Compile Include="View\Menu.cs" />
     <Compile Include="View\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
