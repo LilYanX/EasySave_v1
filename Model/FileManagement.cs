@@ -7,7 +7,7 @@ using System.IO;
 
 namespace EasySave_v1
 {
-    class FileManagement:Repository
+    class FileManagement
     {
         public void CompareElement()
         {
